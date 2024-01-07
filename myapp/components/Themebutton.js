@@ -1,21 +1,30 @@
 'use client'
-import React from 'react';
-import { useTheme } from 'next-themes';
-import { FiSun, FiMoon } from 'react-icons/fi'; 
-import styles from './Themebutton.module.css'; 
+import React, { useContext } from "react";
+import { FiMoon, FiSun } from "react-icons/fi";
+import { ThemeContext } from "@/lib/ThemeContext";
 
-const Themebutton = () => {
-  const { systemTheme, theme, setTheme } = useTheme();
-  const currentTheme = theme === 'system' ? systemTheme : theme;
+const ThemeToggle = () => {
+  const { toggle, theme } = useContext(ThemeContext);
 
   return (
-    <button
-      onClick={() => setTheme((prevTheme) => (prevTheme === 'dark' ? 'light' : 'dark'))}
-      className={`${styles.themeButton} ${currentTheme === 'dark' ? styles.darkMode : ''}`}
+    <div
+      className={`w-15 h-15 rounded-full cursor-pointer flex items-center justify-center relative ${
+        theme === "dark" ? "bg-white" : "bg-gray-800"
+      }`}
+      onClick={toggle}
     >
-      {currentTheme === 'dark' ? <FiSun /> : <FiMoon />}
-    </button>
+      {theme === "dark" ? (
+        <FiMoon size={14} color="#0f172a" />
+      ) : (
+        <FiSun size={14} color="white" />
+      )}
+      <div
+        className={`w-15 h-15 rounded-full absolute ${
+          theme === "dark" ? "left-1 bg-gray-800" : "right-1 bg-white"
+        }`}
+      ></div>
+    </div>
   );
 };
 
-export default Themebutton;
+export default ThemeToggle;

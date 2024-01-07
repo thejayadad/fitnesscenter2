@@ -1,12 +1,9 @@
-import Themebutton from '@/components/Themebutton'
-import React from 'react'
+import Image from 'next/image'
 
-const HomePage = () => {
+export default function Home() {
   return (
-    <div className='bg-white dark:bg-gray-900'>HomePage
-
- </div>
+   <main className='dark:bg-gray-900 dark:text-white'>
+    homePAge
+   </main>
   )
 }
-
-export default HomePage
