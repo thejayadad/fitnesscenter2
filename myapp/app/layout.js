@@ -3,6 +3,7 @@ import './globals.css'
 import Navbar from '@/components/Navbar'
 import { ThemeContextProvider } from '@/lib/ThemeContext'
 import ThemeProvider from '@/lib/ThemeProvider'
+import Footer from '@/components/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,7 +19,10 @@ export default function RootLayout({ children }) {
         <ThemeContextProvider>
         <ThemeProvider>
         <Navbar />
+        <section className='dark:bg-gray-800 dark:text-white'>
         {children}
+        <Footer />
+        </section>
         </ThemeProvider>
         </ThemeContextProvider>
         </body>
