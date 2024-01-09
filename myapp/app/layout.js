@@ -1,9 +1,7 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
+import AuthProvider from '@/SessionProvider'
 import Navbar from '@/components/Navbar'
-import { ThemeContextProvider } from '@/lib/ThemeContext'
-import ThemeProvider from '@/lib/ThemeProvider'
-import Footer from '@/components/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,15 +14,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ThemeContextProvider>
-        <ThemeProvider>
+        <AuthProvider>
+        <main
+        
+        className='flex flex-col'>
         <Navbar />
-        <section className='dark:bg-gray-800 dark:text-white'>
-        {children}
-        <Footer />
-        </section>
-        </ThemeProvider>
-        </ThemeContextProvider>
+          {children}
+        </main>
+        </AuthProvider>
         </body>
     </html>
   )

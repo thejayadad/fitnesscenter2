@@ -1,9 +1,9 @@
-import Image from 'next/image'
+import React from 'react'
 
-export default function Home() {
+const HomePage = () => {
   return (
-   <main className='dark:bg-gray-900 dark:text-white'>
-    homePAge
-   </main>
+    <div>HomePage</div>
   )
 }
+
+export default HomePage
